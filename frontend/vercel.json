@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "gallery.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "frontend.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Gallery/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/gallery", "dest": "/gallery.html" },
+    { "src": "/api/(.*)", "dest": "/api/$1.js" }
+  ]
+}
